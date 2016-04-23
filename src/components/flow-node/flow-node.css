@@ -1,3 +1,7 @@
 .flow-node {
-  
+
+}
+.flow-node-icon path, polygon {
+  fill: lightgray !important;
+  stroke: darkgray !important;
 }

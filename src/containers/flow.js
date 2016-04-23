@@ -5,7 +5,6 @@ import _ from 'lodash'
 
 export default class Flow extends Component {
   componentDidMount() {
-    console.log({flowData})
   }
   renderFlowNodes() {
     return _.map(flowData.nodes, function(node){
@@ -16,9 +15,11 @@ export default class Flow extends Component {
     console.log(this.renderFlowNodes())
     return (
       <div>
-        <h1>The Flow</h1>
+        <h1>{flowData.name}</h1>
         <svg viewBox="500 300 1000 600">
-          {this.renderFlowNodes()}
+          <g>
+            {this.renderFlowNodes()}
+          </g>
         </svg>
       </div>
     )
