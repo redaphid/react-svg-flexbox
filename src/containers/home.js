@@ -7,34 +7,21 @@ export default class Home extends Component {
     this.state = {scale: {height:1000, width:1000}}
   }
 
-  componentDidMount() {
-    console.log("I, a component, mounted.")
-    // setInterval( ()=> this.zoomIn(), 200)
-  }
-
-  zoomIn() {
-    const {scale} = this.state
-    const newScale = {
-      height: zoom,
-      width: scale.width - 1
-    }
-    this.setState({scale: newScale})
-  }
   render() {
     const {scale} = this.state
     return (
       <div>
         <h1>Hello</h1>
         <FlexSvg css={css} scale={scale}>
-          <svg className="group">
-            <rect fill="green" className="big-rect"/>
-            <circle fill="red" className="the-circle"/>
-            <rect fill="blue" className="small-rect"/>
-          </svg>
-          <svg className="group2">
-            <rect className="background-rect" fill="lightgray" stroke="gray"/>
-            <text textAnchor="middle" fontSize="100" className="text">middle</text>
-          </svg>
+            <g className="row-group">
+              <rect fill="green" className="big-rect"/>
+              <circle fill="red" className="the-circle"/>
+              <rect fill="blue" className="small-rect"/>
+            </g>
+            <g className="group2">
+              <rect className="background-rect" fill="lightgray" stroke="gray"/>
+              <text textAnchor="middle" fontSize="100" className="text">middle</text>
+            </g>
         </FlexSvg>
       </div>
     )

@@ -1,7 +1,11 @@
 export default {
+  'main-group': {
+    flex: 1,
+
+    flexDirection: 'column'
+  },
   'the-circle': {
-    padding: 5,
-    flex: 2
+    flex: 1
   },
 
   'background-rect' : {
@@ -12,7 +16,8 @@ export default {
     bottom: 0
   },
 
-  text: {},
+  text: {    
+  },
 
   'big-rect': {
     minHeight: 20,
@@ -28,17 +33,26 @@ export default {
   'column-group': {
     flex: 1,
     flexDirection: 'column',
+    alignItems: 'stretch',
+    justifyContent: 'center'
+  },
+
+  'center-text': {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 
   'row-group': {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    justifyContent: 'center'
   },
 
   group2: {
-    height: 400,
-    width: 800,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -46,6 +60,8 @@ export default {
   group: {
     flexDirection: 'row',
     flex: 1,
+    minHeight: 100,
+    minWidth: 10,
     alignItems: 'center',
     justifyContent: 'space-around'
   }
