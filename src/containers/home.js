@@ -9,8 +9,9 @@ export default class Home extends Component {
         <li>Item 2</li>
       </ul>
     </div>
-    console.log(flexIt(a))
-    return a
+    const flexed = flexIt(a)
+    console.log({flexed})
+    return flexed
   }
 }
 
