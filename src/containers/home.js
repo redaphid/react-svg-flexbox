@@ -26,11 +26,15 @@ export default class Home extends Component {
       <div>
         <h1>Hello</h1>
         <FlexSvg css={css} scale={scale}>
-          <g className="group">
+          <svg className="group">
             <rect fill="green" className="big-rect"/>
             <circle fill="red" className="the-circle"/>
             <rect fill="blue" className="small-rect"/>
-          </g>
+          </svg>
+          <svg className="group2">
+            <rect className="background-rect" fill="lightgray" stroke="gray"/>
+            <text textAnchor="middle" fontSize="100" className="text">middle</text>
+          </svg>
         </FlexSvg>
       </div>
     )

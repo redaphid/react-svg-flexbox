@@ -14,7 +14,7 @@ const flexboxToSvgProperty = {
   }
 }
 
-export default function flexIt (node, {css={}, scale}={}) {
+export default function flexIt (node, {css={}, scale={}}={}) {
   const {width, height} = scale
   var styleTree = getStyleTree(node)
   styleTree.layout = {
@@ -27,9 +27,10 @@ export default function flexIt (node, {css={}, scale}={}) {
 
   function applyStyleTree({dom, children, layout}) {
     if(_.isString(dom)) return dom
+    console.log({type: dom.type, layout: layout})
     return cloneElement(
       dom,
-      getSvgLayout(dom.type, _.extend({}, layout, dom.props)),
+      getSvgLayout(dom.type, _.extend({alignmentBaseline: 'middle'}, layout, dom.props)),
       _.map(children, applyStyleTree)
     )
   }
