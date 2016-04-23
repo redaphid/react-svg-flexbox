@@ -19,14 +19,19 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-    loaders: [{
+    loaders: [
+    {
       test: /\.js$/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')
     },
     {
+      test: /\.json$/,
+      loader: "json-loader"
+    },
+    {
       test: /\.css$/,
-      loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]&importLoaders=1!postcss-loader',
+      loader: 'style-loader!css-loader!postcss-loader',
       include: path.join(__dirname, 'src')
     }]
   },
