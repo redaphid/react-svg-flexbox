@@ -4,13 +4,13 @@ export default {
     flex: 2
   },
   'big-rect': {
-    padding: 10,
+    minHeight: 20,
     margin: 10,
     flex: 3
   },
 
   'small-rect': {
-    padding: 10,
+    minHeight: 10,
     flex: 1
   },
 
