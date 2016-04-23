@@ -1,7 +1,23 @@
 import React, {Component} from 'react';
 import flexIt from '../models/flex-it'
+
+const flexStyles = {
+  'the-list': {
+    padding: 50
+  },
+  list1: {
+    padding: 100
+  },
+  'big-circle': {
+    padding: 10
+  }
+}
+
 export default class Home extends Component {
   render() {
+    var svg = <svg>
+      <rect flexClass="big-circle"/>
+    </svg>
     var a =  <div>
       <h1>Home Page</h1>
       <ul flexClass="the-list list1">
@@ -9,7 +25,7 @@ export default class Home extends Component {
         <li>Item 2</li>
       </ul>
     </div>
-    const flexed = flexIt(a)
+    const flexed = flexIt(svg, flexStyles)
     console.log({flexed})
     return flexed
   }
