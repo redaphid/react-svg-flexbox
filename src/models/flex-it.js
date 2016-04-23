@@ -16,11 +16,7 @@ const flexboxToSvgProperty = {
 
 export default function flexIt (node, styles, {width, height}={}) {
   var styleTree = getStyleTree(node)
-  styleTree.layout = {
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+  styleTree.layout = { 
     width: width || 100,
     height: height || 100
   }
