@@ -14,13 +14,18 @@ export default class Home extends Component {
         <h1>Hello</h1>
         <FlexSvg css={css} scale={scale}>
             <g className="row-group">
-              <rect fill="green" className="big-rect"/>
-              <circle fill="red" className="the-circle"/>
-              <rect fill="blue" className="small-rect"/>
-            </g>
-            <g className="group2">
-              <rect className="background-rect" fill="lightgray" stroke="gray"/>
-              <text textAnchor="middle" fontSize="100" className="text">middle</text>
+              <g className="row-group">
+                <rect fill="green" className="big-rect"/>
+                <circle fill="red" className="the-circle"/>
+                <rect fill="blue" className="small-rect"/>
+              </g>
+              <g className="group2">
+                <rect className="background-rect" fill="lightgray" stroke="gray"/>
+                <text textAnchor="middle" fontSize="100" className="text">middle</text>
+              </g>
+              <g className="group2">
+                <text textAnchor="middle" fontSize="100" className="text">Side Guy</text>
+              </g>
             </g>
         </FlexSvg>
       </div>
