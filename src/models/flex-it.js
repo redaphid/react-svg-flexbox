@@ -14,9 +14,10 @@ const flexboxToSvgProperty = {
   }
 }
 
-export default function flexIt (node, styles, {width, height}={}) {
+export default function flexIt (node, {css={}, scale}={}) {
+  const {width, height} = scale
   var styleTree = getStyleTree(node)
-  styleTree.layout = { 
+  styleTree.layout = {
     width: width || 100,
     height: height || 100
   }
@@ -46,7 +47,7 @@ export default function flexIt (node, styles, {width, height}={}) {
   function getStyle(node) {
     return _(node.props.className)
       .split(' ')
-      .map(function(flexClass){ return styles[flexClass] })
+      .map(function(flexClass){ return css[flexClass] })
       .reduce(_.extend, {})
   }
 
