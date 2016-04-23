@@ -7,10 +7,11 @@ export default class Node extends Component {
       <div>
         <h1>Nodez</h1>
         <FlexSvg css={css}>
-            <rect fill="red" className="the-circle"/>
+            <circle fill="red" className="the-circle"/>
             <g className="center-text">
               <text textAnchor="middle" fontSize="5" className="text">middle</text>
             </g>
+            <rect fill="blue" className="big-rect"/>
         </FlexSvg>
       </div>
     )

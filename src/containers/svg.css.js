@@ -16,7 +16,7 @@ export default {
     bottom: 0
   },
 
-  text: {    
+  text: {
   },
 
   'big-rect': {
@@ -38,10 +38,10 @@ export default {
   },
 
   'center-text': {
-    flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: 9
   },
 
   'row-group': {
