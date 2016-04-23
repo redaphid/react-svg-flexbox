@@ -8,7 +8,10 @@ const flexStyles = {
   list1: {
     padding: 100
   },
-  'big-circle': {
+  'big-rect': {
+    padding: 10
+  },
+  'small-rect': {
     padding: 10
   }
 }
@@ -16,7 +19,10 @@ const flexStyles = {
 export default class Home extends Component {
   render() {
     var svg = <svg>
-      <rect flexClass="big-circle"/>
+      <g>
+        <rect flexClass="big-rect"/>
+        <rect flexClass="small-rect"/>
+      </g>
     </svg>
     var a =  <div>
       <h1>Home Page</h1>
@@ -25,7 +31,7 @@ export default class Home extends Component {
         <li>Item 2</li>
       </ul>
     </div>
-    const flexed = flexIt(svg, flexStyles)
+    const flexed = flexIt(a, flexStyles)
     console.log({flexed})
     return flexed
   }
