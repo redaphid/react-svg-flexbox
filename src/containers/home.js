@@ -31,7 +31,7 @@ export default class Home extends Component {
         <li>Item 2</li>
       </ul>
     </div>
-    const flexed = flexIt(a, flexStyles)
+    const flexed = flexIt(svg, flexStyles)
     console.log({flexed})
     return flexed
   }

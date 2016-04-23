@@ -2,6 +2,11 @@ import computeLayout from 'css-layout'
 import {cloneElement, Children} from 'react'
 import _ from 'lodash'
 
+const flexboxToSvgProperty = {
+  left: 'x',
+  top: 'y'
+}
+
 export default function flexIt (node, styles) {
   var styleTree = getStyleTree(node)
 
@@ -10,16 +15,16 @@ export default function flexIt (node, styles) {
 
   function applyStyleTree({dom, children, layout}) {
     if(_.isString(dom)) return dom
-
+    console.log({layout, type: dom.type})
     return cloneElement(
       dom,
-      _.extend({flexed: true}, layout),
+      getSvgLayout(layout),
       _.map(children, applyStyleTree)
     )
   }
 
   function getStyleTree(node) {
-    if(!_.isObject(node)) return {dom: node}
+    if(_.isString(node)) return {dom: node}
 
     return {
       dom: node,
@@ -33,5 +38,13 @@ export default function flexIt (node, styles) {
       .split(' ')
       .map(function(flexClass){ return styles[flexClass] })
       .reduce(_.extend, {})
+  }
+
+  function getSvgLayout(layout) {
+      return _.mapKeys(layout, function(value, key){
+        const svgProperty = flexboxToSvgProperty[key]
+        if(svgProperty) return svgProperty
+        return key
+      })
   }
 }
