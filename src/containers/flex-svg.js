@@ -10,9 +10,7 @@ export default class FlexSvg extends Component {
 
     var root = (
       <svg viewBox={`0 0 ${width} ${height}`}>
-        <g className="main-group" height={scale.height} width={scale.width}>
-          {this.props.children}
-        </g>
+          {this.props.children}        
       </svg>
     )
     return flexIt(root, {css, scale})

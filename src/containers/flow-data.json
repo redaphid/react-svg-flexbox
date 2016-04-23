@@ -1,0 +1,142 @@
+{
+  "flowId": "8a61ae36-ca6c-4f19-8215-27e3dd00de6a",
+  "token": "7ee922b1226749b95d78e1562919d4dab4c752ff",
+  "name": "Bad Double Debug Flow",
+  "description": null,
+  "hash": "dbee3211",
+  "nodes": [
+    {
+      "id": "c0688b00-c53a-11e5-9d62-f72aba31d3a4",
+      "category": "operation",
+      "uuid": "37f0a3a8-2f17-11e4-9617-a6c5e4d22fb7",
+      "defaults": {
+        "output": 1,
+        "func": "\nreturn msg;"
+      },
+      "logo": "https://ds78apnml6was.cloudfront.net/operation/function.svg",
+      "name": "Function",
+      "type": "operation:function",
+      "input": 1,
+      "formTemplatePath": "/pages/node_forms/function_form.html",
+      "x": 774.5674438476562,
+      "outputLocations": [],
+      "y": 367.1618347167969,
+      "resourceType": "flow-node",
+      "output": 1,
+      "class": "function",
+      "helpText": "Sends a custom message using javascript",
+      "inputLocations": [],
+      "func": "\nreturn _.random(0,1000)",
+      "nanocyte": {
+        "name": "nanocyte-node-function"
+      },
+      "needsConfiguration": false,
+      "needsSetup": false
+    },
+    {
+      "formTemplatePath": "/pages/node_forms/debug_form.html",
+      "logo": "https://ds78apnml6was.cloudfront.net/operation/debug.svg",
+      "x": 996.8114013671875,
+      "class": "debug",
+      "uuid": "37f0b88e-2f17-11e4-9617-a6c5e4d22fb7",
+      "defaults": {
+        "active": true,
+        "debug": true,
+        "complete": false
+      },
+      "input": 1,
+      "output": 0,
+      "align": "right",
+      "inputLocations": [],
+      "resourceType": "flow-node",
+      "complete": false,
+      "category": "operation",
+      "outputLocations": [],
+      "active": true,
+      "debug": true,
+      "helpText": "Display the contents of the messages it receives in the debug panel",
+      "type": "operation:debug",
+      "color": "#87a980",
+      "nanocyte": {
+        "name": "nanocyte-node-debug"
+      },
+      "y": 594.9515991210938,
+      "needsConfiguration": false,
+      "id": "c45d6be0-c53a-11e5-9d62-f72aba31d3a4",
+      "name": "Debug",
+      "needsSetup": false
+    },
+    {
+      "x": 661.1441040039062,
+      "once": false,
+      "class": "trigger",
+      "uuid": "37f0a74a-2f17-11e4-9617-a6c5e4d22fb7",
+      "type": "operation:trigger",
+      "input": 0,
+      "nanocyte": {
+        "name": "nanocyte-node-trigger"
+      },
+      "logo": "https://ds78apnml6was.cloudfront.net/operation/trigger.svg",
+      "y": 584.7282104492188,
+      "payloadType": "date",
+      "helpText": "Send a static message. Can also be triggered from other flows",
+      "category": "operation",
+      "defaults": {
+        "payloadType": "date",
+        "once": false
+      },
+      "formTemplatePath": "/pages/node_forms/button_form.html",
+      "outputLocations": [],
+      "id": "faae7360-c53a-11e5-9d62-f72aba31d3a4",
+      "resourceType": "flow-node",
+      "name": "Trigger",
+      "needsConfiguration": false,
+      "needsSetup": false,
+      "output": 1,
+      "inputLocations": []
+    }
+  ],
+  "links": [
+    {
+      "from": "c0688b00-c53a-11e5-9d62-f72aba31d3a4",
+      "fromPort": 0,
+      "to": "c45d6be0-c53a-11e5-9d62-f72aba31d3a4",
+      "toPort": 0
+    },
+    {
+      "from": "faae7360-c53a-11e5-9d62-f72aba31d3a4",
+      "fromPort": 0,
+      "to": "c0688b00-c53a-11e5-9d62-f72aba31d3a4",
+      "toPort": 0
+    }
+  ],
+  "selectedLink": null,
+  "selectedFlowNode": {
+    "id": "c0688b00-c53a-11e5-9d62-f72aba31d3a4",
+    "category": "operation",
+    "uuid": "37f0a3a8-2f17-11e4-9617-a6c5e4d22fb7",
+    "defaults": {
+      "output": 1,
+      "func": "\nreturn msg;"
+    },
+    "logo": "https://ds78apnml6was.cloudfront.net/operation/function.svg",
+    "name": "Function",
+    "type": "operation:function",
+    "input": 1,
+    "formTemplatePath": "/pages/node_forms/function_form.html",
+    "x": 774.5674438476562,
+    "outputLocations": [],
+    "y": 367.1618347167969,
+    "resourceType": "flow-node",
+    "output": 1,
+    "class": "function",
+    "helpText": "Sends a custom message using javascript",
+    "inputLocations": [],
+    "func": "\nreturn _.random(0,1000)",
+    "nanocyte": {
+      "name": "nanocyte-node-function"
+    },
+    "needsConfiguration": false,
+    "needsSetup": false
+  }
+}
