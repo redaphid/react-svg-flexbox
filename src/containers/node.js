@@ -14,13 +14,15 @@ export default class Node extends Component {
           <svg viewBox="0 0 100 100" height="50" width="50" x="25">
             <circle r="25" cy="50" cx="50" fill="blue" className="the-circle"/>
             <text x="50" y="80" alignmentBaseline="end" textAnchor="middle" fontSize="5" className="text">another one</text>
-            <svg viewBox="0 0 100 100" height="50" width="50" x="25">
-              <circle r="25" cy="50" cx="75" fill="green" className="the-circle"/>
-              <text x="50" y="80" alignmentBaseline="end" textAnchor="middle" fontSize="5" className="text">another one</text>
+
+            <svg viewBox="0 0 100 100" height="50" width="50" x="0">
+              <circle r="25" cy="50" cx="50" fill="green" className="the-circle"/>
+              <text x="50" y="80" alignmentBaseline="end" textAnchor="middle" fontSize="5" className="text">ear 1</text>
             </svg>
-            <svg viewBox="0 0 100 100" height="50" width="50" x="25">
-              <circle r="25" cy="50" cx="25" fill="yellow" className="the-circle"/>
-              <text x="50" y="80" alignmentBaseline="end" textAnchor="middle" fontSize="5" className="text">another one</text>
+
+            <svg viewBox="0 0 100 100" height="50" width="50" x="50">
+              <circle r="25" cy="50" cx="50" fill="yellow" className="the-circle"/>
+              <text x="50" y="80" alignmentBaseline="end" textAnchor="middle" fontSize="5" className="text">ear 2</text>
             </svg>
           </svg>
         </svg>
