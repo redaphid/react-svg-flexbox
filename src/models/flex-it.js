@@ -3,8 +3,15 @@ import {cloneElement, Children} from 'react'
 import _ from 'lodash'
 
 const flexboxToSvgProperty = {
-  left: 'x',
-  top: 'y'
+  defaults: {
+    left: 'x',
+    top: 'y'
+  },
+  circle: {
+    width: 'r',
+    left: 'cx',
+    top: 'cy'
+  }
 }
 
 export default function flexIt (node, styles, {width, height}={}) {
@@ -14,18 +21,18 @@ export default function flexIt (node, styles, {width, height}={}) {
     bottom: 0,
     left: 0,
     right: 0,
-    width: width || 1000,
-    height: height || 1000
+    width: width || 100,
+    height: height || 100
   }
   computeLayout(styleTree)
+  delete styleTree.layout
   return applyStyleTree(styleTree)
 
   function applyStyleTree({dom, children, layout}) {
     if(_.isString(dom)) return dom
-    console.log({layout, type: dom.type})
     return cloneElement(
       dom,
-      getSvgLayout(layout),
+      getSvgLayout(dom.type, _.extend({}, layout, dom.props)),
       _.map(children, applyStyleTree)
     )
   }
@@ -47,11 +54,14 @@ export default function flexIt (node, styles, {width, height}={}) {
       .reduce(_.extend, {})
   }
 
-  function getSvgLayout(layout) {
+  function getSvgLayout(nodeType, layout) {
       return _.mapKeys(layout, function(value, key){
-        const svgProperty = flexboxToSvgProperty[key]
-        if(svgProperty) return svgProperty
-        return key
+        return getSvgProperty(nodeType, key)
       })
+  }
+
+  function getSvgProperty(nodeType, key) {
+    const svgPropertiesForType = _.extend({}, flexboxToSvgProperty.defaults, flexboxToSvgProperty[nodeType])
+    return svgPropertiesForType[key] || key
   }
 }

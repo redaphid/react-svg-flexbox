@@ -3,12 +3,13 @@ import FlexSvg from './flex-svg'
 export default class Home extends Component {
   render() {
     return (
-      <div style={{display: 'flex', flexDirection: 'column', height: '100%', width: '100%'}}>
+      <div>
         <h1>Hello</h1>
         <FlexSvg>
           <g className="group">
-            <rect className="big-rect"/>
-            <rect className="small-rect"/>
+            <rect fill="green" className="big-rect"/>
+            <circle fill="red" className="the-circle"/>
+            <rect fill="blue" className="small-rect"/>
           </g>
         </FlexSvg>
       </div>
