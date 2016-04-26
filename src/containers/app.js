@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
+import { getFlowScale } from '../reducers'
 
 import Flow from '../components/flow'
 
 const mapStateToProps = ({flow}) => {
-  return {flow}
+  return {
+    flow: {
+      flow: flow,
+      scale: getFlowScale({flow})
+    }
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

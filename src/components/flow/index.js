@@ -4,19 +4,19 @@ import _ from 'lodash'
 
 
 const Flow = ({flow}) => {
-  const {nodes, links, name} = flow
-  return(<div>
-          <h1>{name}</h1>
-          <svg viewBox="500 300 1000 600">
-            <g>
-              {renderFlowNodes({nodes})}
-            </g>
-          </svg>
-        </div>
+  const {nodes, links, name} = flow.flow;
+  const {min, max} = flow.scale;
+  return(
+    <div>
+      <h1>{name}</h1>
+      <svg viewBox={`${min.x} ${min.y} ${max.x} ${max.y}`}>
+          {renderFlowNodes({nodes})}
+      </svg>
+    </div>
   )
 }
 
-const renderFlowNodes = ({nodes}) => {  
+const renderFlowNodes = ({nodes}) => {
   return _.map(nodes, function(node){
     return <FlowNode node={node}/>
   });
