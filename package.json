@@ -31,11 +31,14 @@
   "dependencies": {
     "css-layout": "^1.1.1",
     "lodash": "^4.11.1",
+    "pathfinding": "^0.4.17",
     "postcss": "^5.0.19",
     "react": "^15.0.1",
     "react-dom": "^0.14.7",
     "react-inlinesvg": "^0.4.2",
+    "react-redux": "^4.4.5",
     "react-router": "^2.0.1",
+    "redux": "^3.5.2",
     "superagent": "^1.8.3"
   },
   "devDependencies": {
