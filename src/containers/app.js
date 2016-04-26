@@ -1,7 +1,17 @@
+import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import {Element} from 'react-scroll'
 import { getFlowScale } from '../reducers'
+import {zoomAround} from '../actions'
 
 import Flow from '../components/flow'
+
+export default class FlowContainer extends Component {
+  render() {
+    const {flow, onZoom} = this.props
+    return <Flow onZoom={onZoom} flow={flow}/>
+  }
+}
 
 const mapStateToProps = ({flow}) => {
   return {
@@ -14,15 +24,13 @@ const mapStateToProps = ({flow}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTodoClick: (id) => {
-      dispatch(toggleTodo(id))
+    onZoom: ({deltaX, deltaY}) => {
+      dispatch(zoomAround({deltaX, deltaY}))
     }
   }
 }
 
-const FlowContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Flow)
-
-export default FlowContainer
+)(FlowContainer)

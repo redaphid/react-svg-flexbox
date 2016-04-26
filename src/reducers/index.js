@@ -8,6 +8,10 @@ const renderFlow = function({state, action}){
     return state
 }
 
+export const zoomAround = function() {
+  console.log('zoomAround', arguments)
+}
+
 export const getFlowScale = function({flow}){
   const {nodes} = flow;
   const {x,y} = _.first(nodes)
@@ -20,11 +24,11 @@ export const getFlowScale = function({flow}){
     if (x > max.x) max.x = x
     if (y > max.y) max.y = y
   })
-    
+
   return {min, max}
 }
 
-const FlowReducer = { renderFlow}
+const FlowReducer = {renderFlow, zoomAround}
 
 
 
