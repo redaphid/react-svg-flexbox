@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import FlowNode from '../flow-node'
 import _ from 'lodash'
 
-const Flow = ({flow, onZoom}) => {
-  const {nodes, links, name} = flow.flow;
+const Flow = ({flow, onZoom}) => {  
+  const {nodes, links, name} = flow.data;
   const {min, max} = flow.scale;
   return(
     <div>

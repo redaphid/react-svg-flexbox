@@ -1,19 +1,39 @@
 import _ from 'lodash'
-import flow from './flow-data.json'
+import flowData from './flow-data.json'
 
-const initialState = {flow}
+const initialState = {}
 
 const renderFlow = function({state, action}){
     console.log('trying to render a flow with:', {state, action})
     return state
 }
 
-export const zoomAround = function() {
-  console.log('zoomAround', arguments)
+const loadFlow = function({state, action}){
+  const flow = {
+    data: flowData,
+    scale: getFlowScale(flowData)
+  }
+  console.log(flow)
+  return _.defaults({flow}, state)
 }
 
-export const getFlowScale = function({flow}){
-  const {nodes} = flow;
+export const zoomAround = function({state, action}) {
+  const {flow={}} = state
+  const {scale, data} = flow
+
+  if(!scale || !data) return state
+
+  console.log(flow.scale, action)
+  var newScale = _.cloneDeep(scale)
+  newScale.min.y += (action.deltaY * 10)
+  newScale.max.y += (action.deltaY * 10)
+  console.log('zoomAround', newScale.min.x)
+  return _.defaults({flow: {scale: newScale, data}}, state)
+}
+
+export const getFlowScale = function(flowData){
+  console.log('getting flow scale')
+  const {nodes} = flowData;
   const {x,y} = _.first(nodes)
   var min = {x, y}, max = {x, y}
 
@@ -28,12 +48,12 @@ export const getFlowScale = function({flow}){
   return {min, max}
 }
 
-const FlowReducer = {renderFlow, zoomAround}
+const FlowReducer = {renderFlow, zoomAround, loadFlow}
 
 
 
 export default (state = initialState, action) => {
-
+  console.log('action', action.type)
   if(!_.isFunction(FlowReducer[action.type])){
     console.log('no action found for', action.type);
     return state;

@@ -6,20 +6,9 @@ import {zoomAround} from '../actions'
 
 import Flow from '../components/flow'
 
-export default class FlowContainer extends Component {
-  render() {
-    const {flow, onZoom} = this.props
-    return <Flow onZoom={onZoom} flow={flow}/>
-  }
-}
-
 const mapStateToProps = ({flow}) => {
-  return {
-    flow: {
-      flow: flow,
-      scale: getFlowScale({flow})
-    }
-  }
+  console.log('mapStateToProps', flow.scale.min.x)
+  return {flow}
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -33,4 +22,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FlowContainer)
+)(Flow)
